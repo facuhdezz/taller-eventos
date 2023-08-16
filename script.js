@@ -1,6 +1,19 @@
-const boton = document.getElementById("div1");
+const div1 = document.getElementById("div1");
+const boton = document.getElementById("boton");
+
 function alerta(){
     alert('Hola! Soy el div');
 }
 
-boton.addEventListener("click", alerta);
+function alerta2(){
+    alert('Hola!');
+}
+
+boton.addEventListener("click", (e) => {
+    e.stopPropagation();
+    alerta2();
+});
+
+div1.addEventListener("click", () => {
+    alerta();
+});
